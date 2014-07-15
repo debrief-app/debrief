@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140715030225) do
+ActiveRecord::Schema.define(version: 20140715053518) do
 
   create_table "accounts", force: true do |t|
     t.string   "name",       limit: 1024, null: false
@@ -38,5 +38,37 @@ ActiveRecord::Schema.define(version: 20140715030225) do
 
   add_index "teams", ["account_id"], name: "index_teams_on_account_id"
   add_index "teams", ["department_id"], name: "index_teams_on_department_id"
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.integer  "failed_attempts",        default: 0,  null: false
+    t.string   "unlock_token"
+    t.datetime "locked_at"
+    t.string   "display_name"
+    t.integer  "account_id",                          null: false
+    t.integer  "department_id"
+    t.integer  "team_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["account_id"], name: "index_users_on_account_id"
+  add_index "users", ["department_id"], name: "index_users_on_department_id"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["team_id"], name: "index_users_on_team_id"
 
 end
