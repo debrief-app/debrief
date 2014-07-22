@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   belongs_to :account
   belongs_to :department
   belongs_to :team
+  has_many :briefs
 
   validates :account, presence: true
   validates :email, presence: true
