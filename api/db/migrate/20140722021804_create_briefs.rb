@@ -6,6 +6,8 @@ class CreateBriefs < ActiveRecord::Migration
       t.references :department, index: true
       t.references :team, index: true
       t.references :user, index: true, null: false
+
+      t.timestamps
     end
   end
 end
