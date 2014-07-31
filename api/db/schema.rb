@@ -20,11 +20,13 @@ ActiveRecord::Schema.define(version: 20140722025412) do
   end
 
   create_table "briefs", force: true do |t|
-    t.text    "text",          null: false
-    t.date    "date",          null: false
-    t.integer "department_id"
-    t.integer "team_id"
-    t.integer "user_id",       null: false
+    t.text     "text",          null: false
+    t.date     "date",          null: false
+    t.integer  "department_id"
+    t.integer  "team_id"
+    t.integer  "user_id",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "briefs", ["department_id"], name: "index_briefs_on_department_id"
