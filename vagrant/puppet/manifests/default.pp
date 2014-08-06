@@ -42,6 +42,10 @@ package{"libv8-dev":
   ensure => installed
 }
 
+package{"nodejs":
+  ensure => installed
+}
+
 # --- Ruby ---------------------------------------------------------------------
 
 exec { 'install_rvm':
