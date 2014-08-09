@@ -1,17 +1,9 @@
-class Api::V1::BriefsController < ApplicationController
-  # GET /briefs
-  # GET /briefs.json
+class Api::V1::BriefsController < Api::V1::BaseController
   def index
-    briefs = Brief.all
-
-    render json: briefs
+    render json: current_user.briefs
   end
 
-  # GET /briefs/1
-  # GET /briefs/1.json
   def show
-    briefs = Brief.find(params[:id])
-
-    render json: briefs
+    render json: current_user.briefs.find(params[:id])
   end
 end
