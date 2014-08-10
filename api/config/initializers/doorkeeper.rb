@@ -13,7 +13,7 @@ Doorkeeper.configure do
   #end
 
   resource_owner_from_credentials do |routes|
-    user = User.find_by_email(params[:user])
+    user = User.find_by_email(params[:username])
     user if user && user.valid_password?(params[:password])
   end
 
